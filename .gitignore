@@ -1,0 +1,11 @@
+*.class
+.DS_Store
+src/net/eai/devtest/DataMapper.java
+src/net/eai/devtest/UserData.java
+build/classes/net/eai/devtest/
+src/net/eai/devtest/
+build/
+WebContent/WEB-INF/
+.idea
+EAIDev.iml
+doc

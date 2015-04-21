@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="@entity@"
+        xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <alias>
+        <typeAlias alias="@entity@" type="@namespace@.Entity.@entity@, @project@" />
+    </alias>
+
+    <resultMaps>
+        <resultMap id="FullResultMap" class="@entity@">
+            @FullResultMap@
+        </resultMap>
+
+        <resultMap id="ResultNum" class="@project@.Entity.NumBase, @project@">
+            <result property="Num" column="Num" dbType="BIGINT(20)"/>
+        </resultMap>
+    </resultMaps>
+
+    <statements>
+
+        <select id="Find" parameterClass="@entity@" resultMap="FullResultMap">
+            @Find@
+        </select>
+
+        <select id="FindList" parameterClass="String" resultMap="FullResultMap">
+            @FindList@
+        </select>
+
+        <insert id="Insert" parameterClass="@entity@">
+            @Insert@
+        </insert>
+
+        <update id="Update" parameterClass="@entity@">
+            @Update@
+        </update>
+
+        <delete id="Delete" parameterClass="@entity@">
+            @Delete@
+        </delete>
+
+        <select id="Count" parameterClass="String" resultMap="ResultNum">
+            @Count@
+        </select>
+
+        <select id="LastID" parameterClass="@entity@" resultMap="ResultNum">
+            @LastID@
+        </select>
+
+    </statements>
+</sqlMap>

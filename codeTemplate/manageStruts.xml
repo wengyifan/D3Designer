@@ -1,0 +1,5 @@
+		<action name="listAll@Entity@" class="@packageName@.@ApiEntity@" method="listAll@Entity@Api"></action>
+		<action name="get@Entity@" class="@packageName@.@ApiEntity@" method="get@Entity@Api"></action>
+		<action name="del@Entity@" class="@packageName@.@ApiEntity@" method="del@Entity@Api"></action>
+		<action name="save@Entity@" class="@packageName@.@ApiEntity@" method="save@Entity@Api"></action>
+		

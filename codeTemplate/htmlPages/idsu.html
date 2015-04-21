@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@targetEntity@</title>
+    
+    <link href="css/bootstrap.min.css?v=1.4" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css?v=1.4" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=1.4" rel="stylesheet"> 
+    <link href="js/plugins/layer/skin/layer.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+@navigator@
+</div>
+
+    <div id="wrapper">
+        <div class="wrapper wrapper-content animated fadeInRight">
+             <div class="row">
+                <div class="col-lg-6">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>鼠标经过</h5>
+                            </div>
+                            <div  class="ibox-content">
+
+							<table id = "aaa" class="table table-hover">
+                                
+                             </table>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+					<div class="col-sm-6">
+											
+					</div>
+				</div>
+                
+              
+            </div>
+    </div>
+
+	<a onclick="fnClickAddRow();" href="javascript:void(0);" class="btn btn-primary ">添加行</a>
+	<a onclick="editRow();" href="javascript:void(0);" class="btn btn-primary ">弹窗</a>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js?v=1.4"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/hplus.js?v=1.4"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+ 
+    <script src="js/plugins/layer/layer.min.js"></script>
+ <script>
+ 
+ function fnClickAddRow()
+ {
+	 
+		var urled = window.location.href;
+		var cous = urled.lastIndexOf("/") + 1;
+		var uelede = urled.substring(0, cous);
+		$.ajax({
+			type : 'GET',
+			url : uelede + "getCatagoryTable.action",
+			dataType : "text",
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			cache : false,
+			success : function(data) {
+				$("#aaa").children().remove(); 
+				$("#aaa").append(data);	
+			}
+		});
+	 
+ }
+ 
+ function editRow()
+ {
+	 /*
+		var urled = window.location.href;
+		var cous = urled.lastIndexOf("/") + 1;
+		var uelede = urled.substring(0, cous);
+		$.ajax({
+			type : 'GET',
+			url : uelede + "getCatagoryTable.action",
+			dataType : "text",
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			cache : false,
+			success : function(data) {
+				$("#aaa").children().remove(); 
+				$("#aaa").append(data);	
+			}
+		});*/
+	 var div = "<label class=\"col-sm-3 control-label\">姓名：</label><div class=\"col-sm-8\"><input id=\"cname\" name=\"name\" minlength=\"2\" type=\"text\" class=\"form-control\" required=\"\" aria-required=\"true\"></div>";
+	 
+	 var pagei = $.layer({
+		   type: 1,   //0-4的选择,
+		    title: false,
+		    border: [0],
+		    closeBtn: [0],
+		    shadeClose: false,
+		    area: ['80%', '80%'],
+		    page: {
+		        html:div 
+		    }
+		});
+ }
+ 
+ 
+ </script>
+
+  
+</body>
+
+</html>
